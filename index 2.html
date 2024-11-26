@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size:contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('https://files.oaiusercontent.com/file-GuLvviAIzARIPeAatAO1T8ro?se=2024-10-29T20%3A04%3A27Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D70b30b7c-7f01-4180-a9f2-dcfd1713eae4.webp&sig=8lu3UAOibdYxdOI2ztlnQDJMaeG3i91QtCTZaoh/M88%3D'); 
+        }
+        #perguntas {
+            background-color: rgba(255, 255, 255, 0.651);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 800px;
+      height: 800px;
+      border-radius: 90%;
+      border: solid cadetblue 2px;
+        }
+        .pergunta {
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+
+        button {
+  touch-action: manipulation;
+  display: inline-block;
+  outline: none;
+  font-family: inherit;
+  font-size: 1em;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0.3em;
+  height: 2.75em;
+  line-height: 2.5em;
+  text-transform: uppercase;
+  padding: 0 1em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+    inset 0 -2px 5px 1px rgba(139, 66, 8, 1),
+    inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+  background-image: linear-gradient(
+    160deg,
+    #a54e07,
+    #b47e11,
+    #fef1a2,
+    #bc881b,
+    #a54e07
+  );
+  border: 1px solid #a55d07;
+  color: rgb(120, 50, 5);
+  text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+button:focus,
+button:hover {
+  background-size: 150% 150%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23),
+    inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+  border: 1px solid rgba(165, 93, 7, 0.6);
+  color: rgba(120, 50, 5, 0.8);
+}
+
+button:active {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+    inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+}
+
+
+    </style>
+</head>
+<body>
+    <div id="perguntas">
+        <div class="pergunta">
+            <h1>Qual sua cor favorita?</h1>
+            <label><input type="radio" name="p1" class="radios" value="bela"> Amarelo</label>
+            <label><input type="radio" name="p1" class="radios" value="branca"> Vermelho</label>
+            <label><input type="radio" name="p1" class="radios" value="frozen"> Azul</label>
+            <label><input type="radio" name="p1" class="radios" value="tiana"> Preto</label>
+        </div>
+        <div class="pergunta">
+            <h1>Qual sua princesa favorita?</h1>
+            <label><input type="radio" name="p2" class="radios" value="bela"> Bela</label>
+            <label><input type="radio" name="p2" class="radios" value="branca"> Branca de Neve</label>
+            <label><input type="radio" name="p2" class="radios" value="frozen"> Frozen</label>
+            <label><input type="radio" name="p2" class="radios" value="tiana"> Tiana</label>
+        </div>
+        <div class="pergunta">
+            <h1>Qual sua comida favorita?</h1>
+            <label><input type="radio" name="p3" class="radios" value="bela"> Banquete</label>
+            <label><input type="radio" name="p3" class="radios" value="branca"> Maçã</label>
+            <label><input type="radio" name="p3" class="radios" value="frozen"> Sorvete</label>
+            <label><input type="radio" name="p3" class="radios" value="tiana"> Pães</label>
+        </div>
+        <div class="pergunta">
+            <h1>Qual seu lugar favorito?</h1>
+            <label><input type="radio" name="p4" class="radios" value="bela"> Biblioteca</label>
+            <label><input type="radio" name="p4" class="radios" value="branca"> Casa dos anões</label>
+            <label><input type="radio" name="p4" class="radios" value="frozen"> Palácio de Gelo</label>
+            <label><input type="radio" name="p4" class="radios" value="tiana"> Praça</label>
+        </div>
+        <button onclick="contarVotos()">Veja qual você é?</button>
+        <h1 id="bela"></h1>
+        <h1 id="branca"></h1>
+        <h1 id="frozen"></h1>
+        <h1 id="tiana"></h1>
+    </div>
+    <script>
+        function contarVotos() {
+            // Criando contadores
+            let contBela = 0;
+            let contBranca = 0;
+            let contFrozen = 0;
+            let contTiana = 0;
+
+            // Obter os radios da classe radios
+            let radios = document.getElementsByClassName('radios');
+
+            // Percorrer os radios
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    if (radios[i].value === "bela") contBela++;
+                    else if (radios[i].value === "branca") contBranca++;
+                    else if (radios[i].value === "frozen") contFrozen++;
+                    else if (radios[i].value === "tiana") contTiana++;
+                }
+            }
+
+            // Atualizar os elementos HTML com os resultados
+            document.getElementById("bela").innerHTML = "Votos Bela: " + contBela;
+            document.getElementById("branca").innerHTML = "Votos Branca: " + contBranca;
+            document.getElementById("frozen").innerHTML = "Votos Frozen: " + contFrozen;
+            document.getElementById("tiana").innerHTML = "Votos Tiana: " + contTiana;
+
+            // Definir a princesa com mais votos e atualizar o fundo
+            let maiorPontuacao = Math.max(contBela, contBranca, contFrozen, contTiana);
+            let backgroundUrl = '';
+
+            if (maiorPontuacao === contBela) {
+                backgroundUrl = 'url("https://upload.wikimedia.org/wikipedia/pt/e/ef/Belle_by_Disney.png")'; // Substitua pela URL da imagem da Bela
+            } else if (maiorPontuacao === contBranca) {
+                backgroundUrl = 'url("https://upload.wikimedia.org/wikipedia/pt/0/0d/Snow_White_by_Disney.png")'; // Substitua pela URL da imagem da Branca de Neve
+            } else if (maiorPontuacao === contFrozen) {
+                backgroundUrl = 'url("https://upload.wikimedia.org/wikipedia/pt/c/c8/Elsa_de_Frozen_%28Disney%29.png")'; // Substitua pela URL da imagem da Frozen
+            } else if (maiorPontuacao === contTiana) {
+                backgroundUrl = 'url("https://static.wikia.nocookie.net/disney-descendentes/images/2/21/Tiana.webp/revision/latest/thumbnail/width/360/height/360?cb=20240102223021&path-prefix=pt-br")'; // Substitua pela URL da imagem da Tiana
+            }
+
+            document.body.style.backgroundImage = backgroundUrl;
+
+            localStorage.setItem('contBela', contBela)
+            localStorage.setItem('contBranca', contBranca)
+            localStorage.setItem('contBela', contTiana)
+            localStorage.setItem('contBela', contFrozen)
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
